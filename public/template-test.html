@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ball is Life</title>
+	<style type="text/css">
+
+		li:first-child {
+			font-style: italic;
+		}
+		li:last-child {
+			font-weight: bold;
+		}
+
+	</style>
+</head>
+<body ng-app='templateTest'>
+
+<ul>
+	<li ng-repeat="num in [0,1,2,3,4,5,6,7,8,9]" ng-hide="num % 3 == 0">{{num}}</li>
+</ul>
+
+
+<ul>
+    <li ng-repeat="letter in ['a', 'B', 'c', 'D', 'e', 'F']">{{ letter | lowercase }}</li>
+</ul>
+
+	
+<img ng-repeat="pic in ['171','supermeatboy','tfa']" ng-src="img/{{pic}}.jpg">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+<script src="/js/templateTest.js"></script>
+</body>
+</html>
