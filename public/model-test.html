@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ball is def Life</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body ng-app='modelTest'>
+
+<main class="row">
+<form class='col-md-8'  name="myForm">
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input type="text" class="form-control" id="firstName" placeholder="First Name" ng-model="user.firstName" >
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input type="text" class="form-control" id="lastName" placeholder="Last Name" ng-model="user.lastName" >
+  </div>
+  <div class="form-group">
+    <label for="email">email</label>
+    <input type="email" class="form-control" id="email" placeholder="Email" ng-model="user.email" >
+  </div>
+  <div class="form-group">
+    <label for="dob">Date of Birth</label>
+    <input type="date" class="form-control" id="dob" placeholder="Date of Birth" ng-model="user.dob" >
+  </div>
+  <div class="form-group">
+    <label for="github">GitHub Url</label>
+    <input type="url" class="form-control" id="github" placeholder="GitHub Url" ng-model="user.github" >
+  </div>
+  <!-- <div class="form-group">
+    <label for="github">Dropdown</label>
+    <input type="url" class="form-control" id="github" placeholder="GitHub Url" ng-model="" >
+  </div> -->
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+
+<div class='col md-4'>
+	<div class="well" ng-if="myForm.$valid">
+	<h1>How Are you doing?</h1>
+		<p>
+			Hello {{user.firstName}} {{user.lastName}}	
+		</p>
+	</div>
+</div>
+</main>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+<script src="/js/modelTest.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="controllerTest">
+<head>
+	<title>Angular Controller Exercise Burpees</title>
+</head>
+<body>
+
+	<h1>Amazon.io</h1>
+
+	<div ng-controller="CartController as cart">
+		<form name="cartForm" novalidate>
+
+			<label for="description">Description</label>
+		    <input type="text" id="description" ng-model="cart.newItem.description" required>
+		    <label for="price">Price</label>
+		    <input type="number" id="price" ng-model="cart.newItem.price" required>
+		    <label for="qty">Qty</label>
+		    <input type="number" id="qty" ng-model="cart.newItem.qty" required>
+
+		    <button ng-click="cart.addItem()" ng-if="cartForm.$valid">Add Item</button>
+
+		</form>
+
+		    {{ cart.items | json }}
+
+		<div>
+			<table>
+				<tr>
+					<th>Description</th>	
+					<th>Price</th>	
+					<th>QTY</th>	
+					<th></th>	
+				</tr>
+				<tr ng-repeat="item in cart.items">
+					<td>{{ item.description }}</td>
+					<td>{{ item.qty * item.price | currency }}</td>
+					<td><input type="number" id="qty" ng-model="item.qty"></td>
+					<td><button ng-click="cart.removeItem(index)">Remove Item</button></td>
+				</tr>
+				<tr>
+					<td>Subtotal: {{ cart.getSubtotal() | currency }}</td>
+				</tr>
+				<tr>
+					<td>Tax: {{ cart.getSubtotal() * .08125 | currency }}</td>
+				</tr>
+				<tr>
+					<td>Shipping and Handling: {{ cart.getShipping() | currency }}</td>
+				</tr>
+				<tr>
+					<td><strong>Total: {{cart.getSubtotal() + (cart.getSubtotal() * .08125) + cart.getShipping() | currency}} </strong></td>
+				</tr>
+			</table>
+		
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+	<script src="/js/controllerTest.js"></script>
+
+</body>
+</html>
